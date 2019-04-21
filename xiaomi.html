@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .background{
+            width: 100%;
+            height: 588px;
+            background-image: url("https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f838fdcd77715410b441f2f56d8f10cd.jpg");
+            background-position: top center;
+            position: relative;
+        }
+        .title{
+            width: 200px;
+            height: 98px;
+            background-image: url("https://account.xiaomi.com/static/res/7f6f2f5/account-static/respassport/acc-2014/img/mistore_logo.png");
+            position: relative;
+            left:20%;
+        }
+        .login_area{
+            width: 410px;
+            height: 556px;
+            background-color:white;
+            position: absolute;
+            right: 385px;
+            top: 32px;
+        }
+        .text{
+            width: 410px;
+            height: 82px;
+            position: absolute;
+            top: 0;
+            text-align: center;
+        }
+        .line{
+            height: 24px;
+            width: 1px;
+            margin: 0 35px 0 42px;
+            border: 1px solid gray;
+        }
+        .pad{
+            margin: 20px 0 0 0;
+        }
+        .wenzi{
+            color: black;
+            font-size: 24px;
+            text-decoration: none;
+        }
+        .wenzio{
+            color: #ff6700;
+            font-size: 24px;
+            text-decoration: none;
+        }
+        a:hover{
+            color: #ff6700;
+        }
+        a:active{
+            color: #ff6700;
+        }
+        .box{
+            width: 346px;
+            height: 48px;
+            margin: 10px 0;
+        }
+        .inputbox{
+            position: absolute;
+            left: 50%;
+            top: 15%;
+            margin: 0 0 0 -173px;
+        }
+        .btn{
+            width: 349px;
+            height: 50px;
+            position: absolute;
+            left: 50%;
+            top: 43%;
+            margin: 0 0 0 -173px;
+            background-color: #ff6700;
+            font-size: 14px;
+            color: white;
+            border: 0;
+        }
+        .other{
+            position: absolute;
+            left: 33px;
+            top: 298px;
+            font-size: 14px;
+        }
+        .other_pad{
+            position: absolute;
+            right: 24px;
+            top: 298px;
+            font-size: 14px;
+        }
+        a{
+            text-decoration:none;
+        }
+        .detail{
+            color: #ff6700;
+        }
+        .detail_r{
+            color: gray
+        }
+        .line2{
+            height: 1px;
+            font-size: 1px;
+            width: 1px;
+            margin: 0 5px;
+            border: 1px solid rgb(204, 203, 203);
+        }
+    </style>
+</head>
+<body>
+    <div class="title">     
+    </div>
+    <div class="background">
+        <div class="login_area">
+            <div class="text">
+                <div class="pad">
+                        <a href="javascript:void(0);" class="wenzio">账号登录</a>
+                        <span class="line"></span>
+                        <a href="javascript:void(0);" class="wenzi">扫码登录</a>
+                </div>
+            </div>
+            <div class="inputbox">
+                    <input type="text" placeholder="邮箱/手机" class="box">
+                    <input type="text" placeholder="密码" class="box">
+            </div>
+            <input class="btn" type="button" value="登陆">
+            <div class="other">
+                <a href="javascript:void(0);" class="detail">手机短信登录/注册</a>   
+            </div>
+            <div class="other_pad">
+                    <a href="javascript:void(0);" class="detail_r">立即注册</a>
+                    <span class="line2"></span>
+                    <a href="javascript:void(0);" class="detail_r">忘记密码？</a>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
