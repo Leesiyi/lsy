@@ -8,6 +8,21 @@
     <style>
         *{
             margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+        fieldset{
+            border: 0;
+        }
+        .title{
+            height: 98px;
+            width: 1130px;
+            margin: 0 auto;
+        }
+        .title-img{
+            width: 200px;
+            height: 98px;
+            background-image: url("https://account.xiaomi.com/static/res/7f6f2f5/account-static/respassport/acc-2014/img/mistore_logo.png");
         }
         .background{
             width: 100%;
@@ -16,27 +31,21 @@
             background-position: top center;
             position: relative;
         }
-        .title{
-            width: 200px;
-            height: 98px;
-            background-image: url("https://account.xiaomi.com/static/res/7f6f2f5/account-static/respassport/acc-2014/img/mistore_logo.png");
-            position: relative;
-            left:20%;
-        }
-        .login_area{
-            width: 410px;
-            height: 556px;
-            background-color:white;
-            position: absolute;
-            right: 385px;
-            top: 32px;
-        }
-        .text{
-            width: 410px;
-            height: 82px;
+        .bd-pad{
+            width: 1130px;
+            height: 588px;
             position: absolute;
             top: 0;
-            text-align: center;
+            left: 50%;
+            margin-left: -565px;
+        }    
+        .login_area{
+            width: 410px;
+            height: 525px;
+            background-color:white;
+            position: absolute;
+            right: 0;
+            top: 40px;
         }
         .line{
             height: 24px;
@@ -45,12 +54,13 @@
             border: 1px solid gray;
         }
         .pad{
-            margin: 20px 0 0 0;
+            text-align: center;
+            padding: 27px 0 24px;
         }
         .wenzi{
             color: black;
             font-size: 24px;
-            text-decoration: none;
+            
         }
         .wenzio{
             color: #ff6700;
@@ -64,47 +74,41 @@
             color: #ff6700;
         }
         .box{
-            width: 346px;
-            height: 48px;
-            margin: 10px 0;
+            width: 306px;
+            height: 22px;
+            padding: 13px 16px 13px 14px;
+            margin-bottom: 14px;
+            font-size: 14px;
         }
         .inputbox{
-            position: absolute;
-            left: 50%;
-            top: 15%;
-            margin: 0 0 0 -173px;
+            width: 348px;
+            margin: 0 auto;
+        }
+        .btn-padding{
+            padding-top: 10px;
         }
         .btn{
-            width: 349px;
+            width: 340px;
             height: 50px;
-            position: absolute;
-            left: 50%;
-            top: 43%;
-            margin: 0 0 0 -173px;
             background-color: #ff6700;
             font-size: 14px;
             color: white;
             border: 0;
         }
         .other{
-            position: absolute;
-            left: 33px;
-            top: 298px;
+            float: left;
             font-size: 14px;
+            margin-top: 5px;
         }
         .other_pad{
-            position: absolute;
-            right: 24px;
-            top: 298px;
+            float: right;
             font-size: 14px;
+            margin-top: 5px;
         }
-        a{
-            text-decoration:none;
-        }
-        .detail{
+        .detail-l{
             color: #ff6700;
         }
-        .detail_r{
+        .detail-r{
             color: gray
         }
         .line2{
@@ -114,35 +118,148 @@
             margin: 0 5px;
             border: 1px solid rgb(204, 203, 203);
         }
+        .lf-footer{
+      width: 348px;
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      margin-left: -174px;
+    }
+    .login-type{
+      color: #bbb;
+      text-align: center;
+      border-top:1px solid #ddd;
+    }
+    .login-type legend{
+      margin: 0 auto;
+    }
+    .logo-icon{
+      text-align: center;
+    }
+    .logo-icon a{
+      margin:20px;
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: blue;
+    }
+    .logo-icon i{
+      display: block;
+      background: url("https://account.xiaomi.com/static/res/166d6dc/account-static/respassport/acc-2014/img/icons_type.png") no-repeat;
+    }
+    .logo-icon .qq{
+      background-color:#0288d1
+    }
+    .logo-icon .qq i,.logo-icon .sina i{
+      width: 18px;
+      height: 18px;
+      margin: 4px auto 0;
+      background-position: -19px 0;
+    }
+    .logo-icon .sina{
+      background-color: #d32f2f;
+    }
+    .logo-icon .sina i{
+      background-position: -38px 0;
+    }
+    .logo-icon .alipay{
+      background-color: #0ae;
+    }
+    .logo-icon .alipay i{
+      background-position: -57px 0;
+      width: 25px;
+      height: 18px;
+      margin-top: 6px;
+      margin-left: 4px;
+    }
+    .logo-icon .wechat{
+      background-color: #00d20d;
+    }
+    .logo-icon .wechat i{
+      background-position: -83px 0;
+      width: 24px;
+      height: 18px;
+      margin: 4px auto 0;
+    }
+    .footer{
+      text-align: center;
+      color: #757575;
+      font-size: 14px;
+    }
+    .footer ul{
+      margin:20px 0;
+    }
+    .footer li{
+      display: inline-block;
+    }
+    .footer li a{
+      padding: 0 20px;
+      color: #757575
+    }
     </style>
 </head>
 <body>
-    <div class="title">     
+    <div class="title">        
+        <div class="title-img"></div>          
     </div>
     <div class="background">
-        <div class="login_area">
-            <div class="text">
+        <div class="bd-pad">
+            <div class="login_area">
                 <div class="pad">
-                        <a href="javascript:void(0);" class="wenzio">账号登录</a>
-                        <span class="line"></span>
-                        <a href="javascript:void(0);" class="wenzi">扫码登录</a>
+                    <a href="javascript:void(0);" class="wenzio">账号登录</a>
+                    <span class="line"></span>
+                    <a href="javascript:void(0);" class="wenzi">扫码登录</a>
                 </div>
-            </div>
-            <div class="inputbox">
+                <div class="inputbox">
                     <input type="text" placeholder="邮箱/手机" class="box">
-                    <input type="text" placeholder="密码" class="box">
-            </div>
-            <input class="btn" type="button" value="登陆">
-            <div class="other">
-                <a href="javascript:void(0);" class="detail">手机短信登录/注册</a>   
-            </div>
-            <div class="other_pad">
-                    <a href="javascript:void(0);" class="detail_r">立即注册</a>
-                    <span class="line2"></span>
-                    <a href="javascript:void(0);" class="detail_r">忘记密码？</a>
-            </div>
-            
-        </div>
+                    <input type="password" placeholder="密码" class="box">
+                    <div class="btn-padding">
+                        <button class="btn">登录</button>
+                    </div>
+                    <div class="other">
+                        <a href="javascript:void(0);" class="detail-l">手机短信登录/注册</a>   
+                    </div>
+                    <div class="other_pad">
+                        <a href="javascript:void(0);" class="detail-r">立即注册</a>
+                        <span class="line2"></span>
+                        <a href="javascript:void(0);" class="detail-r">忘记密码？</a>
+                    </div>      
+                </div>
+                <div class="lf-footer">
+                    <fieldset class="login-type">
+                      <legend>其他方式登录</legend>
+                    </fieldset>
+                    <div class="logo-icon">
+                      <a class="qq" href="javascript:void(0);">
+                        <i></i>
+                      </a>
+                      <a class="sina" href="javascript:void(0);">
+                        <i></i>
+                      </a>
+                      <a class="alipay" href="javascript:void(0);">
+                        <i></i>
+                      </a>
+                      <a class="wechat" href="javascript:void(0);">
+                        <i></i>
+                      </a>
+                    </div>
+                  </div>
+                
+            </div>   
+        </div>   
+    </div>
+    <div class="footer">
+        <ul>
+          <li><a href="javascript:void(0);">简体</a>|</li>
+          <li><a href="javascript:void(0);">繁体</a>|</li>
+          <li><a href="javascript:void(0);">English</a>|</li>
+          <li><a href="javascript:void(0);">常见问题</a>|</li>
+          <li><a href="javascript:void(0);">隐私政策</a></li>
+        </ul>
+        <p>小米公司版权所有-京ICP备10046444-
+            <img src="https://account.xiaomi.com/static/res/9204d06/account-static/respassport/acc-2014/img/ghs.png">
+          京公网安备11010802020134号-京ICP证110507号</p>
     </div>
 </body>
 </html>
