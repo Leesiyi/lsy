@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var shi = [1,2,3];
+    var shi2= [];
+    for(var i=0;i<3;i++){
+        shi2[i]=shi[i];
+    }
+    
+    var arr = [1,2,['a','b'],4];
+    var arr2=[];
+    var i = 0;
+    function digui(arr,arr2){
+        console.log(arr,arr2);
+        arr2[i]=arr[i];
+        ++i;
+        if(i==arr.length){
+            return arr2;
+        }
+        digui(arr,arr2);
+        
+    }
+    digui(arr,arr2);
+    console.log(arr2);
+
+    </script>
+</body>
+</html>

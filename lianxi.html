@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var wenti = window.confirm("是否选择午餐");
+    var shuru = new Array();
+    var chisha = ["胖成啥B样了，还吃呢？","吃菠菜","吃苹果","吃菠萝","吃橘子","吃香蕉","吃梨","吃葡萄","吃火龙果","吃西瓜"]
+    if (wenti==true){
+        var renshu = window.prompt("共有几人","人数")
+        for(var i = 1;i <= renshu;i++){
+            shuru[i-1] = window.prompt("输入第"+i+"个人的名字","名字");
+            if(shuru[i-1]==null)
+            continue;
+        }; 
+        for(var j = 1;j <= renshu;j++){
+            if(shuru[j-1]==null)
+            continue;
+            var shuzi = Math.floor(Math.random()*10);
+            // switch(shuzi){
+            //     case 0: shuzi="胖成啥B样了，还吃呢？";break;
+            //     case 1: shuzi="吃菠菜";break;
+            //     case 2: shuzi="吃苹果";break;
+            //     case 3: shuzi="吃菠萝";break;
+            //     case 4: shuzi="吃橘子";break;
+            //     case 5: shuzi="吃香蕉";break;
+            //     case 6: shuzi="吃梨";break;
+            //     case 7: shuzi="吃葡萄";break;
+            //     case 8: shuzi="吃火龙果";break;
+            //     case 9: shuzi="吃西瓜";
+            // };    
+            alert(shuru[j-1]+chisha[shuzi]);
+        };   
+    }else{
+        alert("不吃！");
+    };
+    </script>
+</body>
+</html>
