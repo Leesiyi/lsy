@@ -98,10 +98,10 @@
         }
         .logo{
             display: block;
-            width: 55px;
+            width: 200px;
             height: 55px;
-            background-image: url("https://s01.mifile.cn/i/mi-logo.png") ;
-            background-color:#ff6700; 
+            background-image: url("https://www.12306.cn/index/images/logo.jpg") ;
+            background-color:#3B99FC; 
             background-position: center;
         }
         .header-main{
@@ -124,7 +124,7 @@
             padding: 26px 10px 38px;
         }
         .list-item a:hover{
-            color: #ff6700;
+            color: #3B99FC;
         }
         .blank{
             width: 127px;
@@ -182,7 +182,7 @@
             font-size: 14px;
         }
         .gouwuche:hover{
-            color: #ff6700;
+            color: #3B99FC;
             background-color: white
         }
         .gouwuche:hover .flash{
@@ -212,9 +212,9 @@
         }
         .btn:hover{
             transition: all 0.5s ease;
-            background-color: #ff6700;
+            background-color: #3B99FC;
             color: white;
-            border: 1px solid #ff6700;
+            border: 1px solid #3B99FC;
         }
         .xiala{
             /* visibility: hidden; */
@@ -229,55 +229,6 @@
             margin-left: auto;
             margin-right: auto;
             
-        }
-        .xiala-img{
-            margin: 0 auto 16px;
-        }
-        .xiala-tupian{
-            width: 160px;
-            height: 110px;
-        }
-        .flags{
-            height: 18px;
-            width: 26px;
-            padding: 1px 20px;
-            border: 1px solid #ff6700;
-            margin-right: auto;
-            margin-left: auto;
-            color: #ff6700
-        }
-        .xiala-flag{
-            width: 100%;
-            text-align: center;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-        .xiala-title a:hover{
-            color: #333;
-        }
-        .xiala-title a{
-            color: #333;
-        }
-        .xiala li:not(.first):before{
-            position: absolute;
-            width: 1px;
-            height: 100px;
-            top:35px;
-            left: 0;
-            background-color: #e2e0e0;
-            content: "";          
-        }
-        .xiala li{
-            position: relative;
-            width: 180px;
-            padding: 35px 12px 0 12px;
-            float: left;
-            text-align: center;
-            font-size: 12px;
-        }
-        .xiala-price{
-            color: #ff6700;
         }
         .biaoqian{
             position: absolute;
@@ -294,10 +245,40 @@
             transition: all .5s;
         }
         .biaoqian a:hover{
-            background-color: #ff6700;
+            background-color: #3B99FC;
             color: white;
         }
-        
+        .box{
+      width: 1226px;
+      border:1px solid black;
+      height: 300px;
+      margin:0 auto;
+    }
+    .headers{
+      height: 50px;
+      background-color: black;
+    }
+    .headers ul{
+      padding:0;
+    }
+    .headers ul li{
+      float: left;
+      color: #fff;
+      list-style: none;
+      height: 50px;
+      line-height: 50px;
+      padding: 0 20px;
+    }
+    .headers ul .active{
+      background-color: #ddd;
+      color: black;
+    }
+    .bodyy ul{
+      display: none;
+    }
+    .box .bodyy .active{
+      display: block;
+    }
     </style>
 </head>
 <body>
@@ -305,14 +286,14 @@
         <div class="limit">
             <div class="top-bar">
                 <ul class="left">
-                    <li><a href="javascript:void(0);" class="words">小米商城</a> <span class="line"></span></li>
-                    <li><a href="javascript:void(0);" class="words">MIUI</a> <span class="line"></span></li>
-                    <li><a href="javascript:void(0);" class="words">loT</a> <span class="line"></span></li>
-                    <li><a href="javascript:void(0);" class="words">云服务</a> <span class="line"></span></li>
-                    <li><a href="javascript:void(0);" class="words">金融</a> <span class="line"></span></li>
-                    <li><a href="javascript:void(0);" class="words">有品</a> <span class="line"></span></li>
-                    <li><a href="javascript:void(0);" class="words">小爱开放平台</a> <span class="line"></span></li>
-                    <li><a href="javascript:void(0);" class="words">政企服务</a> <span class="line"></span></li>
+                    <li><a href="javascript:void(0);" class="words">首页</a> <span class="line"></span></li>
+                    <li><a href="javascript:void(0);" class="words">车票</a> <span class="line"></span></li>
+                    <li><a href="javascript:void(0);" class="words">团购服务</a> <span class="line"></span></li>
+                    <li><a href="javascript:void(0);" class="words">会员服务</a> <span class="line"></span></li>
+                    <li><a href="javascript:void(0);" class="words">站车服务</a> <span class="line"></span></li>
+                    <li><a href="javascript:void(0);" class="words">商旅服务</a> <span class="line"></span></li>
+                    <li><a href="javascript:void(0);" class="words">出行指南</a> <span class="line"></span></li>
+                    <li><a href="javascript:void(0);" class="words">信息查询</a> <span class="line"></span></li>
                     <li><a href="javascript:void(0);" class="words">资质证照</a> <span class="line"></span></li>
                     <li><a href="javascript:void(0);" class="words">协议规则</a> <span class="line"></span></li>
                     <li class="li-ma">
@@ -321,7 +302,7 @@
                                 <div class="sanjiao"></div>
                                 <div class="zhengfang">
                                     <img class="erweima" src="https://i1.mifile.cn/f/i/17/appdownload/download.png?1" alt="">
-                                    <span>小米商城APP</span>
+                                    <span>12306APP</span>
                                 </div>
                             </div>下载app 
                         </a>
@@ -334,7 +315,7 @@
                         <li>
                             <div class="gouwuche">
                                 <span class="iconfont icon-gouwuche"></span>
-                                <span> 购物车 </span><span>(0)</span>
+                                <span> 购票记录 </span><span>(0)</span>
                                 <div class="flash">
                                     <span>啥也没有</span>
                                 </div>
@@ -356,119 +337,70 @@
             <div class="header-main">
                 <ul class="main-list">
                     <li class="blank"></li>
-                    <li class="list-item"><a href="javascript:void(0);"><span>小米手机</span></a></li>
-                    <li class="list-item"><a href="javascript:void(0);"><span>红米</span></a></li>
-                    <li class="list-item"><a href="javascript:void(0);"><span>电视</span></a></li>
-                    <li class="list-item"><a href="javascript:void(0);"><span>笔记本</span></a></li>
+                    <li class="list-item"><a href="javascript:void(0);"><span>火车票</span></a></li>
+                    <li class="list-item"><a href="javascript:void(0);"><span>机票</span></a></li>
+                    <li class="list-item"><a href="javascript:void(0);"><span>公共汽车票</span></a></li>
+                    <!-- <li class="list-item"><a href="javascript:void(0);"><span>笔记本</span></a></li>
                     <li class="list-item"><a href="javascript:void(0);"><span>家电</span></a></li>
                     <li class="list-item"><a href="javascript:void(0);"><span>新品</span></a></li>
                     <li class="list-item"><a href="javascript:void(0);"><span>路由器</span></a></li>
                     <li class="list-item"><a href="javascript:void(0);"><span>智能硬件</span></a></li>
                     <li class="list-item"><a href="javascript:void(0);"><span>服务</span></a></li>
-                    <li class="list-item"><a href="javascript:void(0);"><span>社区</span></a></li>
+                    <li class="list-item"><a href="javascript:void(0);"><span>社区</span></a></li> -->
                 </ul>
             </div>
             <div class="header-search">
                 <button class="btn"><span class="iconfont icon-weibiaoti10"></span></button>
                 <input type="text" class="search-line">
                 <div class="biaoqian">
-                    <a href="javascript:void(0);">小米9</a>
-                    <a href="javascript:void(0);">小米9 SE</a>
+                    <a href="javascript:void(0);">西安</a>
+                    <a href="javascript:void(0);">长沙</a>
                 </div>
             </div>
         </div>
-        <div class="xiala">
-            <div class="xiala-limit">
-                <ul>
-                    <li class="first">
-                        <div class="xiala-flag">
-                            <div class="flags">新品</div>
-                        </div>
-                        <div class="xiala-img">
-                            <img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-320.png" alt="" class="xiala-tupian">
-                        </div>
-                        <div class="xiala-title">
-                            <a href="javascript:void(0);">小米9</a>
-                        </div>
-                        <div class="xiala-price">
-                            <p>2999元</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="xiala-flag">
-                            <div class="flags">新品</div>
-                        </div>
-                        <div class="xiala-img">
-                            <img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-320.png" alt="" class="xiala-tupian">
-                        </div>
-                        <div class="xiala-title">
-                            <a href="javascript:void(0);">小米9</a>
-                        </div>
-                        <div class="xiala-price">
-                            <p>2999元</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="xiala-flag">
-                            <div class="flags">新品</div>
-                        </div>
-                        <div class="xiala-img">
-                            <img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-320.png" alt="" class="xiala-tupian">
-                        </div>
-                        <div class="xiala-title">
-                            <a href="javascript:void(0);">小米9</a>
-                        </div>
-                        <div class="xiala-price">
-                            <p>2999元</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="xiala-flag">
-                            <div class="flags">新品</div>
-                        </div>
-                        <div class="xiala-img">
-                            <img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-320.png" alt="" class="xiala-tupian">
-                        </div>
-                        <div class="xiala-title">
-                            <a href="javascript:void(0);">小米9</a>
-                        </div>
-                        <div class="xiala-price">
-                            <p>2999元</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="xiala-flag">
-                            <div class="flags">新品</div>
-                        </div>
-                        <div class="xiala-img">
-                            <img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-320.png" alt="" class="xiala-tupian">
-                        </div>
-                        <div class="xiala-title">
-                            <a href="javascript:void(0);">小米9</a>
-                        </div>
-                        <div class="xiala-price">
-                            <p>2999元</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="xiala-flag">
-                            <div class="flags">新品</div>
-                        </div>
-                        <div class="xiala-img">
-                            <img src="https://i1.mifile.cn/f/i/g/2015/cn-index/mi9-320.png" alt="" class="xiala-tupian">
-                        </div>
-                        <div class="xiala-title">
-                            <a href="javascript:void(0);">小米9</a>
-                        </div>
-                        <div class="xiala-price">
-                            <p>2999元</p>
-                        </div>
-                    </li>
-                </ul>
+        <div class="box">
+            <div class="headers">
+              <ul>
+                <li class="active">第一节课</li>
+                <li>第二节课</li>
+                <li>第三节课</li>
+              </ul>
             </div>
-        </div>
+            <div class="bodyy">
+              <ul class="active">
+                <li>第一节课内容</li>
+                <li>第一节课内容</li>
+                <li>第一节课内容</li>
+              </ul>
+              <ul>
+                <li>第二节课内容</li>
+                <li>第二节课内容</li>
+              </ul>
+              <ul>
+                <li>第三节课内容</li>
+              </ul>
+            </div>
+          </div>
     </div>
     <div></div>
     <div></div>
+    <!-- <script>
+        var oHerder = document.getElementsByClassName("header")[0];
+        var headerLi = oHerder.getElementsByTagName("li");
+        var oBody = document.getElementsByClassName("bodyy")[0];
+        var bodyUl = oBody.getElementsByTagName('ul');
+        
+        for(var i=0;i<headerLi.length;i++){
+          headerLi[i].index = i;
+          headerLi[i].onmouseover = function(){
+            for(var j=0;j<headerLi.length;j++){
+              headerLi[j].className = "";
+              bodyUl[j].className = "";
+            }
+            bodyUl[this.index].className = "active";
+            this.className = 'active';
+          }
+        }
+      </script> -->
 </body>
 </html>

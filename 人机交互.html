@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        embed {
+            width: 0px;
+            height: 0px;
+        }
+        #img1{
+            width: 500px;
+            height: 320px;
+            position: absolute;
+            top: 80px;
+            left: 300px;
+           
+        }
+        #img2{
+            width: 500px;
+            height: 320px;
+            position: absolute;
+            top: 80px;
+            left: 800px;
+           
+        }
+        #img3{
+            width: 500px;
+            height: 320px;
+            position: absolute;
+            top: 400px;
+            left: 300px;
+           
+        }
+        #img4{
+            width: 500px;
+            height: 320px;
+            position: absolute;
+            top: 400px;
+            left: 800px;
+           
+        }
+        #img5{
+            width: 300px;
+            height: 640px;
+            position: absolute;
+            top: 80px;
+            background-color: white
+        }
+        #img6{
+            width: 170px;
+            height: 640px;
+            position: absolute;
+            top: 80px;
+            left: 1300px;
+        }
+        /* #tutu {
+            
+        } */
+        #tutu1{
+            width: 200px;
+            height: 130px;
+            background-color:white;
+            opacity: 0;
+            position: absolute;
+            top: 80px;
+            left: 300px;
+        }
+        #tutu2{
+            width: 120px;
+            height: 70px;
+            background-color: palevioletred;
+            opacity: 0;
+            position: absolute;
+            top: 170px;
+            left: 680px;
+        }
+       #tutu3{
+           width: 200px;
+           height: 120px;
+           background-color: pink;
+           opacity: 0;
+           position: absolute;
+           top: 80px;
+           left: 850px;
+       }
+       #tutu4{
+           width: 100px;
+           height: 80px;
+           background-color: bisque;
+           opacity: 0;
+           position: absolute;
+           top: 210px;
+           left: 400px;
+       }
+       #tutu5{
+           width: 100px;
+           height: 80px;
+           background-color: bisque;
+           opacity: 0;
+           position: absolute;
+           top: 320px;
+           left: 500px;
+       }
+       #tutu6{
+           width: 200px;
+           height: 100px;
+           background-color: bisque;
+           opacity: 0;
+           position: absolute;
+           top: 500px;
+           left: 470px;
+       }
+       #tutu7{
+           width: 260px;
+           height: 70px;
+           background-color: bisque;
+           opacity: 0;
+           position: absolute;
+           top: 560px;
+           left: 800px;
+       }
+       #tutu8{
+           width: 80px;
+           height: 150px;
+           background-color: bisque;
+           opacity: 0;
+           position: absolute;
+           top: 80px;
+           left: 570px;
+       }
+       #tutu9{
+           width: 200px;
+           height: 60px;
+           background-color: bisque;
+           opacity: 0;
+           position: absolute;
+           top: 280px;
+           left: 800px;
+       }
+        #div2 {
+            width: 1500px;
+            height: 800px;
+            position: relative;
+            background-color: black
+        }
+       
+
+        
+    </style>
+</head>
+
+<body>
+
+
+    <div id="div2">
+        <img src="./image/30.png" id="img5" alt="">
+        <img src="./image/23.png" id="img1" alt=""><img src="./image/25.png" id="img2" alt="">
+        <img src="./image/29.png" id="img3" alt=""><img src="./image/27.png" id="img4" alt="">
+        <img src="./image/31.png" id="img6" alt="">
+        <div id="tutu1" class="water"></div>
+        <div id="tutu2" class="water"></div>
+        <div id="tutu3" class="water"></div>
+        
+        <div id="tutu4" class="jiaomai"></div>
+        <div id="tutu5" class="jiaomai"></div>
+        <div id="tutu6" class="jiaomai"></div>
+
+        <div id="tutu7" class="mache"></div>
+
+        <div id="tutu8" class="liaotian"></div>
+        <div id="tutu9" class="liaotian"></div>
+
+    </div>
+    
+    <!-- <img src="./image/23.png" alt="./image/23.png" onmouseover="src='./image/21.gif'" onmouseout="src='./image/23.png'"> -->
+    <script>
+        var oDiv = document.getElementsByClassName("water");
+        for(var i=0;i<oDiv.length;i++){
+            oDiv[i].onmouseover = function () {
+                this.innerHTML = '<embed src="./music/liushui.mp3" autostart="false" loop="false" play="false"> </embed>';
+            }
+            oDiv[i].onmouseout=function(){
+                this.innerHTML='<div></div>'
+            }
+        }
+
+        var oJishi = document.getElementsByClassName("jiaomai");
+        for(var i=0;i<oJishi.length;i++){
+            oJishi[i].onmouseover = function () {
+                this.innerHTML = '<embed src="./music/jishi.mp3" autostart="false" loop="false" play="false"> </embed>';
+            }
+            oJishi[i].onmouseout=function(){
+                this.innerHTML='<div></div>'
+            }
+        }
+
+        var oMache = document.getElementsByClassName("mache")[0];
+        oMache.onmouseover = function () {
+                this.innerHTML = '<embed src="./music/mashe.mp3" autostart="false" loop="false" play="false"> </embed>';
+            }
+            oMache.onmouseout=function(){
+                this.innerHTML='<div></div>'
+            }
+
+            var oLiaotian = document.getElementsByClassName("liaotian");
+        for(var i=0;i<oLiaotian.length;i++){
+            oLiaotian[i].onmouseover = function () {
+                this.innerHTML = '<embed src="./music/liaotian.mp3" autostart="false" loop="false" play="false"> </embed>';
+            }
+            oLiaotian[i].onmouseout=function(){
+                this.innerHTML='<div></div>'
+            }
+        }
+
+
+
+        var oImg1 = document.getElementById("img1");
+        oImg1.onmousedown = function () {
+            if (oImg1.getAttribute("src") == "./image/23.png") {
+                oImg1.setAttribute("src", "./image/21.gif");
+            } else if (oImg1.getAttribute("src") == "./image/21.gif") {
+                oImg1.setAttribute("src", "./image/23.png");
+            }
+        }
+
+        var oImg2 = document.getElementById("img2");
+        oImg2.onmousedown = function () {
+            if (oImg2.getAttribute("src") == "./image/25.png") {
+                    oImg2.setAttribute("src", "./image/24.gif");
+            } else if (oImg2.getAttribute("src") == "./image/24.gif") {
+                    oImg2.setAttribute("src", "./image/25.png");
+            }
+        }
+        var oImg3 = document.getElementById("img3");
+        oImg3.onmousedown = function () {
+            if (oImg3.getAttribute("src") == "./image/29.png") {
+                oImg3.setAttribute("src", "./image/28.gif");
+            } else if (oImg3.getAttribute("src") == "./image/28.gif") {
+                oImg3.setAttribute("src", "./image/29.png");
+            }
+        }
+        var oImg4 = document.getElementById("img4");
+        oImg4.onmousedown = function () {
+            if (oImg4.getAttribute("src") == "./image/27.png") {
+                oImg4.setAttribute("src", "./image/26.gif");
+            } else if (oImg4.getAttribute("src") == "./image/26.gif") {
+                oImg4.setAttribute("src", "./image/27.png");
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>
