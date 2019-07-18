@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="kuai">
+        <span>1</span>
+        <span>2</span>
+    </div>
+    <button id="jia">Add</button>
+    <script>
+    var kuai = document.getElementsByClassName("kuai")[0];
+    var btn = document.getElementById("jia");
+    btn.onclick = function(){
+        var ne = document.createElement("span")
+        var shu = kuai.lastElementChild.innerText;
+        ne.innerText = ' ' + (parseInt(shu) + 1);
+        kuai.appendChild(ne);
+    }
+    kuai.onclick = function(e){
+        console.log(e.target.innerText);
+        
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="E:\Work\lsy\jQuery\jquery-3.4.1.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+    }
+
+    .box {
+        width: 500px;
+        border: 1px solid #000;
+        margin: 100px auto;
+    }
+
+    .header {
+        height: 50px;
+        background-color: #000;
+    }
+
+    .header ul {
+        padding: 0;
+    }
+
+    .header ul li {
+        float: left;
+        color: #fff;
+        list-style: none;
+        height: 50px;
+        line-height: 50px;
+        padding: 0 20px;
+        
+    }
+
+    .header ul .active {
+        background-color: #ddd;
+        color: #000;
+    }
+
+    .body ul {
+        display: none;
+    }
+
+    .box .body .active {
+        display: block;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="header">
+            <ul>
+                <li class="active">第一节课</li>
+                <li>第二节课</li>
+                <li>第三节课</li>
+            </ul>
+        </div>
+        <div class="body">
+            <ul class="active">
+                <li>第一节课内容</li>
+                <li>第一节课内容</li>
+                <li>第一节课内容</li>
+            </ul>
+            <ul>
+                <li>第二节课内容</li>
+                <li>第二节课内容</li>
+            </ul>
+            <ul>
+                <li>第三节课内容</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+    $(".header li").on("mouseover",function(e){
+        $(this).addClass("active");
+        console.log($(this).eq())
+    })
+    $(".header li").on("mouseout",function(e){
+        $(this).removeClass("active");
+
+    })
+    </script>
+</body>
+
+</html>

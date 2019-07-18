@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../jquery-3.4.1.js"></script>
+</head>
+<style>
+    #sel {
+        height: 300px;
+        width: 200px;
+        font-size: 20px;
+    }
+
+    #sel2 {
+        height: 300px;
+        width: 200px;
+        font-size: 20px;
+        margin-left: 20px;
+    }
+
+    button {
+        height: 20px;
+        width: 30px;
+    }
+</style>
+
+<body>
+    <select multiple name="" id="sel">
+        <option value="1">选项1</option>
+        <option value="2">选项2</option>
+        <option value="3">选项3</option>
+        <option value="4">选项4</option>
+    </select>
+    <select multiple name="" id="sel2">
+    </select>
+    <button id="btn1">1</button>
+    <button id="btn2">2</button>
+    <button id="btn3">3</button>
+    <button id="btn4">4</button>
+    <script>
+        $("#sel").on("dblclick", "option", function () {
+            $(this).appendTo("#sel2")
+        })
+        $("#sel2").on("dblclick", "option", function () {
+            $(this).appendTo("#sel")
+        })
+        $("#btn1").on("click", function () {
+            $("#sel option:selected").appendTo("#sel2")
+        })
+        $("#btn3").on("click", function () {
+            $("#sel2 option:selected").appendTo("#sel")
+        })
+        $("#btn2").on("click", function () {
+            $("#sel option").appendTo("#sel2")
+        })
+        $("#btn4").on("click", function () {
+            $("#sel2 option").appendTo("#sel")
+        })
+    </script>
+</body>
+
+</html>

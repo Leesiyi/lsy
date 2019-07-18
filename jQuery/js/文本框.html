@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="E:\Work\lsy\jQuery\jquery-3.4.1.js"></script>
+    <style>
+    input{
+        border:0;
+    }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>点击编辑</td>
+            </tr>
+            <tr>
+                <td>学号</td><td>姓名</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td><td>张三</td>
+            </tr>
+            <tr>
+                <td>2</td><td>李四</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        $("tbody tr td").click(function(){
+            var vall = $(this).text()
+            $(this).html("<input type='text'>")
+            $("input").val(vall).focus();
+        })
+        $("tbody tr td").focusout(function(){
+            var inppp = $(this).find("input").val()
+            $(this).empty().text(inppp)
+        })
+        $("input").keydown(function(e){
+            if(e.which==13){
+                $(this).trigger("focusout")
+            }
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var htm = document.getElementsByTagName("html")[0];
+        var arryy;
+        // console.log(htm.childNodes);
+        bianli(htm);
+        function bianli(jiedian) {
+            arryy = jiedian.childNodes;
+
+            // console.log(arry);
+            for(i = 0;i<=arryy.length;i++)
+            {
+                
+                if(arryy[i].nodeType==1&&arryy[i].length==1){
+                    console.log(arryy[i].nodeName)
+
+                }
+                else if(arryy[i].nodeType==1&&arryy[i].length>1){
+                    console.log(arryy[i].childNodes.nodeName);
+                    bianli(arryy[i])
+                }
+                
+            }
+
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>
