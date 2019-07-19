@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="../jQuery/jquery-3.4.1.js"></script>
+    
 </head>
 <body>
     <script>
@@ -16,10 +16,21 @@
             document.cookie = name+"="+num+";expires="+newdate.toUTCString()
         }
         function getCookie(name){
-            var cookies = document.cookie.split(";")
+            var cookies = document.cookie.split(";");
+            for(var i = 0;i<cookies.length;i++){
+                if(cookies[i].split("=")[0].trim()==name){
+                    console.log(cookies[i].split("=")[1]);
+                }
+            }
+        }
+        function delCookie(name){
+            var newdate = new Date
+            newdate.setDate(newdate.getDate()-1)
+            document.cookie = name+"=null;expires="+newdate.toUTCString()
         }
         newCookie("lsy",33,5)
         getCookie("lsy")
+        delCookie("lsy")
     </script>
 </body>
 </html>
