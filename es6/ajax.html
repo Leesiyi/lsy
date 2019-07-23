@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //第一步 创建XMLHttpRequest对象
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        //第二步 发送请求 get psot
+        //get向服务器发送请求 请求方式 url是否异步
+        xmlhttp.open("GET", "text.txt", true);
+        xmlhttp.send();
+        //post向服务器发送请求 请求方式 url是否异步
+        xmlhttp.open("POST", "ajax_test.asp", "true");
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("fname=Bill&lname=Gates");
+        //服务器响应
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {  //readyState /*  */
+                console.log(xmlhttp.responseText);
+            }
+        }
+    </script>
+</body>
+
+</html>
