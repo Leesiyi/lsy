@@ -7,3 +7,12 @@ h1{
     height: 400px;
     background-image: url(../image/timg.jpg);
 }
+::placeholder{
+    background-color: red;
+}
+.dic{
+    background-color: red;
+}
+.abcd{
+    font-size: 19px;
+}
