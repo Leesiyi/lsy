@@ -5,13 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="./vue.js"></script>
 </head>
 <body>
+    <div class="app">
+        <p v-text="hw"></p>
+        <div v-html="tag"></div>
+    </div>
     <script>
-        let arr = [1,2,3];
-        console.log();
-        
-        // Object.prototype.toString.this(arr)
+    new Vue({
+        el:".app",
+        data:{
+            hw:"hello world",
+            tag:"<h1>hello world</h1>"
+        }
+    })
     </script>
 </body>
 </html>

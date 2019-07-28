@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div class="app">
+        <input type="text" name="username" placeholder="请输入用户名" v-model="msg">
+        <input type="text" name="username" placeholder="请输入用户名" v-model.lazy="msg">
+        <input type="text" name="username" placeholder="请输入用户名" v-model.number="msg">
+        用户名：{{msg}}
+        <br/>
+        <input v-model="checked" type="checkbox" name="hob" value="bas">bas
+        <input v-model="checked" type="checkbox" name="hob" value="fob">fob
+        <input v-model="checked" type="checkbox" name="hob" value="ten">ten
+        <input v-model="checked" type="checkbox" name="hob" value="tab">tab
+        {{checked}}
+        <br/>
+        <input v-model="sexx" type="radio" name="sex" value="men">男
+        <input v-model="sexx" type="radio" name="sex" value="women">女
+        {{sexx}}
+        <br/>
+        <select name="" id="" v-model="school">
+            <option value="hd">hd</option>
+            <option value="nd">nd</option>
+            <option value="lg">lg</option>
+        </select>
+        {{school}}
+    </div>
+    <script>
+        new Vue({
+            el:".app",
+            data:{
+                msg:"",
+                checked:["bas"],
+                sexx:"",
+                school:"",
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div class="app">
+        <p>{{age}}</p>
+        <h1>{{num}}</h1>
+        <button @click="add">+1</button>
+        <a href="http://www.baidu.com" @click="stop">www.baidu.com</a>
+    </div>
+    <script>
+        new Vue({
+            el:".app",
+            data:{
+                age:1,
+                num:0,
+            },
+            methods:{
+                add(){
+                    this.age++
+                    this.num++
+                },
+                stop(){
+                    break;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
