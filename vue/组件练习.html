@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="./vue/vue.js"></script>
+    <script src="./vue.js"></script>
 </head>
 <body>
     <div id="app">
-        <cc :str="num"></cc>
-        <ww @addc="add"></ww>
+        
+        <ww @addc="add" :str="num"></ww>
         
     </div>
     <script>
@@ -26,14 +26,14 @@
                 }
             },
             components:{
-                "cc":{
-                    template:`<h1>hello {{str}}</h1>
-                    `,
-                    props:["str"]
-                },
                 "ww":{
-                    template:`<button @click="addnum" :value="">add</button>
+                    template:`
+                    <div>
+                        <button @click="addnum">add</button>
+                        <h1>hello {{str}}</h1>
+                    </div>    
                     `,
+                    props:["str"],
                     methods:{
                         addnum(){
                             this.$emit("addc")

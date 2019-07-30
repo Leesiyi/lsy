@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <style>
+        .mosk {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .login {
+            width: 400px;
+            height: 200px;
+            background-color: #fff;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .header {
+            height: 30px;
+            background-color: #000;
+            color: #fff;
+            padding: 0 10px;
+        }
+
+        .header span:last-child {
+            float: right;
+        }
+/* 
+        .container {
+            display: none;
+        } */
+    </style>
+
+</head>
+
+<body>
+    <div id="app">
+        <button id="btn" @click="denglu">登陆</button>
+        <button @click="zhuce">注册</button>
+        <tankuang :str="msg"  @closee="close" :iisshow="isshow">
+            <h1 slot="info">{{info}}</h1>
+        </tankuang>
+    </div>
+    <template id="tem">
+        <div>
+            <div class="container" v-show="iisshow">
+                <div class="mosk"></div>
+                <div class="login">
+                    <div class="header">
+                        <span>{{str}}</span>
+                        <span id="close" @click="closed">X</span>
+                    </div>
+                    <div class="content">
+                        <slot name="info"></slot>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                msg: "",
+                isshow:false,
+                info:""
+            },
+            methods: {
+                close(){
+                    this.isshow=false
+                },
+                zhuce() {
+                    this.isshow=true,
+                    this.msg = "注册"
+                    this.info= "注册"
+                },
+                denglu(){
+                    this.isshow=true,
+                    this.msg = "登录",
+                    this.info = "登录"
+                }
+            },
+            components: {
+                "tankuang": {
+                    template: "#tem",
+                    props: ["str","iisshow"],
+                    methods: {
+                        closed(){
+                            this.$emit("closee")
+                        }
+                    }
+
+                }
+
+            }
+
+        })
+    </script>
+</body>
+
+</html>

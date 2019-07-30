@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="app">
+        <test :str="thiscolor"></test>
+        <test :str="msg"></test>
+    </div>
+    <div id="app2">
+            <test :str="thiscolor"></test>
+            <test :str="msg"></test>
+    </div>
+    <script>
+        Vue.component("test",{
+            template:`
+            <h1>hello {{str}}</h1>
+            `,
+            props:["str"]
+        })
+        new Vue({
+            el:"#app",
+            data:{
+                thiscolor:"red",
+                msg:"hhhh",
+            }
+        })
+        new Vue({
+            el:"#app2",
+            data:{
+                thiscolor:"red",
+                msg:"hhssss",
+
+            }
+        })
+    </script>
+</body>
+</html>
