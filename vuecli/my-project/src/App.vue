@@ -9,12 +9,14 @@
       <router-link to="/connect">Connect</router-link>|
       <router-link to="/cool">Cool</router-link>|
       <router-link to="/re">Re</router-link>|
-      <router-link to="/recool">Alias</router-link>
+      <router-link to="/recool">Alias</router-link>|
+      <router-link to="/count">Count</router-link>
     </div>
     <div class="fath">
-      <transition name="fade">
+      <!-- <transition name="fade"> -->
         <router-view />
-      </transition>
+        <!-- <router-view name=></router-view> -->
+      <!-- </transition> -->
     </div>
   </div>
 </template>
