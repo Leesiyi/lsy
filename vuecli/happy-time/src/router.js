@@ -11,7 +11,14 @@ export default new Router({
     {
       path: '/',
       name: 'movie',
-      component: Movie
+      component: Movie,
+      children:[
+        {
+          path:'/moviedetail',
+          name:'moviedetail',
+          component:()=>import('./views/movie/MovieDetail.vue')
+        }
+      ]
     },
     {
       path:'/music',

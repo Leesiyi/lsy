@@ -7,7 +7,7 @@
 import Style from '@/components/Style.vue'
 export default {
   data(){
-    return {color:"rgb(121, 85, 72)",
+    return {color:"#0066CC",
     text:"书籍"}
   },
   name: 'book',

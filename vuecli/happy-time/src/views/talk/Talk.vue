@@ -7,7 +7,7 @@
 import Style from '@/components/Style.vue'
 export default {
   data(){
-    return {color:"rgb(63, 81, 181)",
+    return {color:"#FFCC33",
     text:"聊天"}
   },
   name: 'talk',

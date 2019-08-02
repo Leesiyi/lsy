@@ -29,14 +29,6 @@ export default {
 }
 </script>
 <style>
-/* #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-} */
 #shouye{
   position: fixed;
   top: 0;
@@ -45,7 +37,6 @@ export default {
   margin-left: 4%;
   line-height: 1rem;
   color: white;
-
 }
 a{
   text-decoration: none;
@@ -70,9 +61,5 @@ a:active{
   bottom: 0;
   color: white;
   z-index: 11;
-  
-  
-  
-  
 }
 </style>

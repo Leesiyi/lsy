@@ -12,11 +12,12 @@ export default {
 <style>
     *{
         margin: 0;
+        
     }
     .header{
         width: 100%;
         height:1rem;
-        
+        z-index: 10;
         position: fixed;
         top:0;
         font-size: 0.5rem;
@@ -27,7 +28,7 @@ export default {
     .footer{
         width: 100%;
         height: 1rem;
-        
+        z-index: 10;
         position: fixed;
         bottom: 0;
     }
