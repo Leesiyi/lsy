@@ -48,3 +48,28 @@
     </script>
 </body>
 </html>
+jieliu(fn, interval) {
+    let _self =fn;
+    let timer; //定时器
+    let firstTime =true;//是否第一次调用
+    return function () {
+        let args = arguments;
+        let _me = this;
+        //如果第一次执行，不需要延迟
+        if(firstTime){
+            _self.apply(_me,args);
+            return firstTime =false;
+        }
+       //如果定时器还在，说明上一次调用还没有完成
+        if(timer){
+            return false;
+        }
+        //延迟1段事件执行
+        timer = setTimeout(function () {
+            clearTimeout(timer);//清理定时器
+            timer =null;//闭包内存释放
+            _self.apply(_me,args);//返回的新函数、参数借用源函数执行
+        },interval||500)
+    }
+}
+

@@ -12,13 +12,7 @@ export default new Router({
       path: '/',
       name: 'movie',
       component: Movie,
-      children:[
-        {
-          path:'/moviedetail',
-          name:'moviedetail',
-          component:()=>import('./views/movie/MovieDetail.vue')
-        }
-      ]
+      
     },
     {
       path:'/music',
@@ -34,6 +28,11 @@ export default new Router({
       path:'/talk',
       name:'talk',
       component:()=>import('./views/talk/Talk.vue')
+    },
+    {
+      path:'/moviedetail',
+      name:'moviedetail',
+      component:()=>import('./views/movie/MovieDetail.vue')
     }
     
   ]

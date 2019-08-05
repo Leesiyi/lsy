@@ -32,7 +32,7 @@ export default {
 #shouye{
   position: fixed;
   top: 0;
-  z-index: 2;
+  z-index: 11;
   font-size: 0.35rem;
   margin-left: 4%;
   line-height: 1rem;

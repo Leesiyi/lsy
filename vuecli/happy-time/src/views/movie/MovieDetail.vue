@@ -1,12 +1,17 @@
 <template>
   <div>
-      <h1>hello</h1>
+    <Style :str="color" :msg="text"></Style>
+    <h1>hello</h1>
   </div>
 </template>
 <script>
+import Style from "@/components/Style.vue";
 export default {
   created() {
       this.getdata();
+  },
+  components:{
+    Style
   },
   methods: {
     getdata() {
@@ -23,6 +28,8 @@ export default {
   data(){
       return {
           movieid:0,
+          color: "#FF6666",
+          text: "电影",
       }
   }
 };
