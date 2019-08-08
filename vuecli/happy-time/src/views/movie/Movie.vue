@@ -122,11 +122,12 @@ export default {
   position: absolute;
   top: 0;
   left: 2.3rem;
+  color: black;
 }
 .info {
   font-size: 0.3rem;
   position: absolute;
-  top: 0.5rem;
+  top: 1.1rem;
   left: 2.3rem;
 }
 li {

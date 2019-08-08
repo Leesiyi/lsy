@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Style :str="color" :msg="text"></Style>
+    <Style :str="color" :msg="text" @backup="gobackk"></Style>
     <Loading v-if="isLoading"></Loading>
     <div class="musicinfo">
       <aplayer :audio="audio" :lrcType="0" ref="aplayer" v-if="issong" />
@@ -73,6 +73,9 @@ export default {
     Loading
   },
   methods: {
+    gobackk(){
+      this.$router.push('/music')
+    },
     golist(id) {
       this.isLoading = true;
       this.isshow = false;

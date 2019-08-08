@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="./js/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Foo2 extends React.Component{
+            constructor(props){
+                super(props)
+            }
+            addson(){
+                this.props.add()
+            }
+            render(){
+                return (
+                    <button onClick={this.addson.bind(this)}>add</button>
+                )
+            }
+        }
+        class Foo extends React.Component{
+            constructor(props){
+                super(props)
+                this.state={
+                    str : "fel",
+                    count :1
+                }
+            }
+            add(){
+                this.setState({
+                    count:this.state.count+1
+                })
+            }
+            render(){
+                return(
+                <div>
+                    <div>hello {this.state.str}</div>
+                    <div>world {this.state.count}</div>
+                    <Foo2 add={this.add.bind(this)}/>
+                </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <Foo/>,
+            document.getElementById("root")
+        ) 
+    </script>
+</body>
+</html>
