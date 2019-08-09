@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="./js/babel.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+    .sp{
+        margin-left: 50px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Todolist extends React.Component{
+            constructor(props){
+                super(props)
+                this.state={
+                    todolist:[
+                        {   
+                            id:1,
+                            thing:"上课",
+                            time:"2019-09-13",
+                            spendtime:2,
+                            ischecked:false
+
+                        },
+                        {   
+                            id:2,
+                            thing:"午休",
+                            time:"2019-09-13",
+                            spendtime:1,
+                            ischecked:false
+                        },
+                        {
+                            id:3,
+                            thing:"吃饭",
+                            time:"2019-09-13",
+                            spendtime:3,
+                            ischecked:false
+                        },
+                        {
+                            id:4,
+                            thing:"篮球",
+                            time:"2019-09-23",
+                            spendtime:4,
+                            ischecked:false
+                        }
+                    ]
+                    
+                }
+            }
+            choosef(index){
+                console.log(this.state.todolist[index].ischecked);
+                let thisArr = this.state.todolist;
+                thisArr[index].ischecked = !this.state.todolist[index].ischecked;
+                
+                this.setState({
+                    todolist:thisArr
+                })
+            }
+            delchecked(index){
+                
+                let arr = this.state.todolist;
+                arr.splice(index,1);
+                this.setState({
+                    todolist:arr,
+                })
+            }
+            addevent(eventarr){
+                
+                let arr = this.state.todolist;
+                arr.push(eventarr);
+                
+                
+                this.setState({
+                    todolist:arr
+                })
+            }
+            delallchecked(){
+                let arr = this.state.todolist;
+                let delarr=[];
+                for(let i = 0;i<arr.length;i++){
+                    if(!arr[i].ischecked){
+                        delarr.push(arr[i])
+                    }
+                }
+                this.setState({
+                    todolist:delarr,
+                })
+            }
+            render(){
+                return(
+                    <div>
+                        <Form nowid={this.state.todolist[this.state.todolist.length-1].id} add={this.addevent.bind(this)}/>
+                        <Table list={this.state.todolist} choose={this.choosef.bind(this)} del={this.delchecked.bind(this)} delallchecked={this.delallchecked.bind(this)}/>
+                    </div>
+                )
+            }
+        }
+        class Form extends React.Component{
+            constructor(props){
+                super(props)
+                this.state={
+                    addlist:{
+                        id:"",
+                        thing:"",
+                        time:"",
+                        spendtime:"",
+                        ischecked:false
+                    },
+                }
+                this.todothing = React.createRef();
+                this.todotime = React.createRef();
+                this.costtime = React.createRef();
+            }
+            collection(event){
+                event.preventDefault();
+                console.log(11);
+                let arr = this.state.addlist;
+                arr.id = this.props.nowid+1;
+                arr.thing = this.todothing.current.value;
+                arr.time = this.todotime.current.value;
+                arr.spendtime = this.costtime.current.value;
+                this.props.add(arr);
+                
+            }
+
+            render(){
+                return(
+                    <form onSubmit={this.collection.bind(this)}>
+                        <div className="form-row">
+                            <div className="col-4">
+                                <input type="text" className="form-control" placeholder="待办事项" ref={this.todothing}/>
+                            </div>
+                            <div className="col">
+                                <input type="date" className="form-control" placeholder="State" ref={this.todotime}/>
+                            </div>
+                            <div className="col">
+                                <input type="text" className="form-control" placeholder="预计用时" ref={this.costtime}/>
+                            </div>
+                            <div className="col-auto">
+                                <button type="submit" className="btn btn-primary mb-2">添加</button>
+                            </div>
+                        </div>
+                    </form>
+                )
+            }
+        }
+        class Table extends React.Component{
+            constructor(props){
+                super(props)
+                this.state={
+                }
+            }
+            chooseline(index){
+                this.props.choose(index)
+            }
+            delline(index,event){
+                event.stopPropagation();
+                this.props.del(index)
+            }
+            delall(){
+                this.props.delallchecked();
+            }
+            render(){
+                let sum =0;
+                let todoline = this.props.list.map((item,index,arr)=>{
+                    
+                    let style = null;
+                    if(item.ischecked){
+                        sum+=parseInt(item.spendtime);
+                        style={
+                            backgroundColor:"#007bff"
+                        }
+                    }
+                    return(
+                        <tr style={style} key={item.id} onClick={this.chooseline.bind(this,index)} >
+                            <th scope="row"><input type="checkbox"  checked={item.ischecked}/></th>
+                            <td>{item.thing}</td>
+                            <td>{item.time}</td>
+                            <td>{item.spendtime}</td>
+                            <td><button onClick={this.delline.bind(this,index)}>删除</button></td>
+                        </tr>
+                    )
+                })
+                return(
+                    <div>
+                        <table className="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">待办事项</th>
+                                    <th scope="col">待办时间</th>
+                                    <th scope="col">预计用时</th>
+                                    <th scope="col">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {todoline}
+                            </tbody>
+                        </table>
+                        <button onClick={this.delall.bind(this)}>全部删除</button><span className="sp">总用时:{sum}</span>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <Todolist/>,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+
+</html>
