@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="E:\Work\lsy\jQuery\jquery-3.4.1.js"></script>
+    
 <style>
 *{
     margin: 0;
@@ -20,14 +20,41 @@ div{
 </head>
 
 <body>
-    <div id="div1"></div>
-    <div id="div2"></div>
+    <div id="div1">1</div>
+    <div id="div2">1</div>
     <div id="div3"></div>
     <script>
-    $("#div1").mousemove(function(){
-        $(this).html(+1);
-        // parseInt()
-    })
+    var d1 = document.getElementById("div1")
+    var d2 = document.getElementById("div2")
+    var d3 = document.getElementById("div3")
+    function jieliu(fn,delay) {
+        var starttime = 0;
+        return function(){
+            var nowtime = Date.now();
+            if(nowtime - starttime > delay){
+                fn.call(this);
+                starttime = nowtime;
+            }
+
+        }
+        
+    }
+    function fangdou(fn,delay) {
+        var timer = null;
+        return function() {
+            clearTimeout(timer)
+            timer = setTimeout(()=> {
+                fn.call(this)
+            },delay)
+        }
+    }
+    d1.onmousemove = jieliu(function() {
+        d1.innerText = parseInt(d1.innerText)+1
+        
+    },2000);
+    d2.onmousemove = fangdou(function () {
+        d2.innerText = parseInt(d2.innerText)+1
+    },1000)
     </script>
 </body>
 </html>

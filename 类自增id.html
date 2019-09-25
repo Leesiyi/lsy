@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    function ps() {
+      let num = 0
+
+      return function () {
+        return this.id = ++num;
+      }
+    }
+    var Person = ps()
+    console.log(Person)
+    var p = new Person();
+    console.log(p);
+    var p2 = new Person();
+    console.log(p2);
+    var p3 = new Person();
+    console.log(p3);
+
+
+
+  </script>
+</body>
+
+</html>
