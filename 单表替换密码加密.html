@@ -1,0 +1,141 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+	<h1>单表代换密码</h1>
+	<br>
+	<h4>明文字母与密文字母对应关系：</h4>
+	<table border = 1>
+		<tr>
+			<th>明文</th>
+			<td>a</td>
+			<td>b</td>
+			<td>c</td>
+			<td>d</td>
+			<td>e</td>
+			<td>f</td>
+			<td>g</td>
+			<td>h</td>
+			<td>i</td>
+			<td>j</td>
+			<td>k</td>
+			<td>l</td>
+			<td>m</td>
+			<td>n</td>
+			<td>o</td>
+			<td>p</td>
+			<td>q</td>
+			<td>r</td>
+			<td>s</td>
+			<td>t</td>
+			<td>u</td>
+			<td>v</td>
+			<td>w</td>
+			<td>x</td>
+			<td>y</td>
+			<td>z</td>
+		</tr>
+		<tr id="miwen">
+			<th>密文</th>
+			<td>W</td>
+			<td>J</td>
+			<td>A</td>
+			<td>N</td>
+			<td>D</td>
+			<td>Y</td>
+			<td>U</td>
+			<td>Q</td>
+			<td>I</td>
+			<td>B</td>
+			<td>C</td>
+			<td>E</td>
+			<td>F</td>
+			<td>G</td>
+			<td>H</td>
+			<td>K</td>
+			<td>L</td>
+			<td>M</td>
+			<td>O</td>
+			<td>P</td>
+			<td>R</td>
+			<td>S</td>
+			<td>T</td>
+			<td>V</td>
+			<td>X</td>
+			<td>Z</td>
+		</tr>
+	</table>
+	<hr>
+	<br><br>
+	<span>要加密的数据/解密后的数据：</span>
+	<input type="text" id="nojiami" />
+	<br><br>
+	<span>输入密钥：</span>
+	<input type="text" id="miyao" />
+	<br><br>
+	<button id="jiamib">加密</button>
+	<button id="jiemib">解密</button>
+	<br><br>
+	<span>加密后的数据/要解密的数据：</span>
+	<input type="text" id="yesjiami" />
+</body>
+<script>
+	/*
+	 * 单表代换加密算法
+	 * 
+	*/
+ 
+	//密文对应关系
+	var a = ['a','b','c','d','e','f','g','h','i','g','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+	var b = [];
+	
+	var nojiami = document.getElementById("nojiami");
+	var yesjiami = document.getElementById("yesjiami");
+    var jiamibtn = document.getElementById('jiamib');
+    var jiemibtn = document.getElementById('jiemib');
+	var miyao = document.getElementById('miyao');
+	var miwen = document.getElementById('miwen');
+    
+	//加密算法
+	jiamibtn.onclick =  function jiami(){
+        b = miyao.value.toUpperCase().split('');
+        
+		arr = nojiami.value.toLowerCase().split('');
+		console.log(arr);
+		var i = 0, j = 0;
+		while(i < arr.length){
+			for(j=0;j<25;j++){
+				if (arr[i] == a[j]){
+					arr[i] = b[j];
+					break;
+				}
+			}
+			i++;
+		}
+		yesjiami.value = arr.join('');
+	}
+	
+	//解密算法
+	jiemibtn.onclick =  function jiemi(){
+        console.log(1);
+        
+		arr = yesjiami.value.toUpperCase().split('');
+		console.log(arr);
+		var i = 0, j = 0;
+		while(i < arr.length){
+			for(j=0;j<25;j++){
+				if (arr[i] == b[j]){
+					arr[i] = a[j];
+					break;
+				}
+			}
+			i++;
+		}
+		nojiami.value = arr.join('');
+	}
+</script>
+</html>
