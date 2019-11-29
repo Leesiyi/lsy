@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function createsushu() {
+            var num = Math.floor(Math.random() * (1 - 100) + 100);
+            var count = 0;//统计因子个数
+            for (var i = 1; i <= num; i++) {
+                if (num % i == 0) {//因子
+                    count++;
+                }
+            }
+            //循环结束后 如果 count == 2  一定是素数
+            if (count == 2) {
+                return num;
+            } else {
+                return createsushu();
+            }
+        }
+        function isCoprime(y) {
+            var x = Math.floor(Math.random() * (1 - 100) + 100);
+            if (x == 1 && y == 1)//1和1互质
+                return x;
+            else if (x == 1 || y == 1)//1和任何正整数都互质
+                return x;
+            else {
+                var tmp = 0;
+                //使用求商判断法，如果输入的x<y，第一次循环会交换x和y的位置
+                while (true) {
+                    tmp = x % y;
+                    if (tmp == 0) {
+                        break;
+                    }
+                    else {
+                        x = y;
+                        y = tmp;
+                    }
+                }
+                if (y == 1)          //最大公约数为1,所以互质
+                    return x;
+                else              //最大公约数大于1，所以不互质
+                    return isCoprime(y);
+            }
+        }
+        function qkpow(a,p,mod)
+        {
+            t = 1, tt = a % mod;
+            while (p) {
+                if (p & 1) t = t * tt % mod;
+                tt = tt * tt % mod;
+                p >>= 1;
+            }
+            return t;
+        }
+        function getInv(a,mod)
+        {
+            return qkpow(a, mod - 2, mod);
+        }
+        var p = createsushu();
+        var q = createsushu();
+        var n = p * q;
+        var fain = (p - 1) * (q - 1);
+        var e = isCoprime(fain);
+        var d = getInv(e,fain);
+        
+        
+        function rsa(m){
+            var c = (m**e)%n;
+            return c;
+        }
+        // function nrsa(c){
+        //     var m = (c**d)%n;
+        //     return m;
+        // }
+        console.log(rsa(4));
+        console.log(p, q, n, fain);
+        console.log(e);
+        console.log(d);
+        
+
+
+
+    </script>
+</body>
+
+</html>

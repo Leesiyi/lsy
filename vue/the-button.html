@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .drop-down-button {
+            padding: 0 9px;
+            margin: 0 4px;
+            min-width: 60px;
+            color: #585858;
+            background-color: #ffffff;
+            border: 1px solid #dadada;
+            font-size: 14px;
+            height: 30px;
+            display: inline-block;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 3px;
+            user-select: none;
+        }
+
+        .blue {
+            color: #3b83fb;
+            border-color: #3b83fb;
+            background: #e7f0ff;
+        }
+
+        .drop-down-list {
+            box-shadow: 0 4px 14px 0 rgba(5, 15, 40, .1);
+            background: #fff;
+            border-radius: 2px;
+            border: 1px solid #e8ebef;
+            width: 168px;
+            margin: 1px 4px 0;
+        }
+
+        .drop-down-list-ul {
+            margin-bottom: 8px;
+            max-height: 192px;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .drop-down-list-ul::-webkit-scrollbar {
+            width: 4px;
+
+        }
+
+        .drop-down-list-ul::-webkit-scrollbar-thumb {
+            background: rgb(194, 199, 205);
+            border-radius: 5px;
+        }
+
+        .dorp-down-list-li {
+            line-height: 36px;
+            padding: 0 26px;
+            color: #282e3d;
+        }
+
+        .dorp-down-list-li:hover {
+            background-color: rgb(246, 247, 250);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <span class="drop-down-button" @click.stop='dropDown' :class="{ blue: isShow }">按钮</span>
+            <div class="drop-down-list" v-show="isShow">
+                <ul class="drop-down-list-ul">
+                    <li v-for="val in arr" class="dorp-down-list-li" @click="theEvent(val)">{{val}}</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <script>
+
+        new Vue({
+            el: "#app",
+            mounted() {
+                window.addEventListener('click', () => {
+                    this.isShow = false;
+                });
+            },
+            data: {
+                arr: ["hello", "world", "hi", "ssss", "你好", 1, 23, 3, 4, 5, 5, 6, 6, 6, 6, 6],
+                isShow: false,
+            },
+            methods: {
+                dropDown() {
+                    this.isShow = !this.isShow;
+                },
+                theEvent(val) {
+                    alert(val);
+
+                }
+
+            },
+        })
+    </script>
+</body>
+
+</html>

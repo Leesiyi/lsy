@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,12 @@
     <title>Document</title>
     <script src="./vue.js"></script>
     <style>
-    .active{
-        color: aquamarine;
-    }
+        .active {
+            color: aquamarine;
+        }
     </style>
 </head>
+
 <body>
     <div class="app">
         <h1 v-bind:class="{active:isactive}">hello world</h1>
@@ -19,16 +21,22 @@
     </div>
     <script>
         new Vue({
-            el:".app",
-            data:{
-                isactive:true,
-                divstyle:{
-                    width:"100px",
-                    
+            el: ".app",
+            mounted() {
+                window.addEventListener('click', () => {
+                    this.isShow = false;
+                });
+            },
+            data: {
+                isactive: true,
+                divstyle: {
+                    width: "100px",
+
                 },
             },
-            
+
         })
     </script>
 </body>
+
 </html>

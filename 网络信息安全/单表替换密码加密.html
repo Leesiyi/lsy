@@ -39,35 +39,6 @@
 			<td>y</td>
 			<td>z</td>
 		</tr>
-		<tr id="miwen">
-			<th>密文</th>
-			<td>W</td>
-			<td>J</td>
-			<td>A</td>
-			<td>N</td>
-			<td>D</td>
-			<td>Y</td>
-			<td>U</td>
-			<td>Q</td>
-			<td>I</td>
-			<td>B</td>
-			<td>C</td>
-			<td>E</td>
-			<td>F</td>
-			<td>G</td>
-			<td>H</td>
-			<td>K</td>
-			<td>L</td>
-			<td>M</td>
-			<td>O</td>
-			<td>P</td>
-			<td>R</td>
-			<td>S</td>
-			<td>T</td>
-			<td>V</td>
-			<td>X</td>
-			<td>Z</td>
-		</tr>
 	</table>
 	<hr>
 	<br><br>
@@ -98,12 +69,11 @@
     var jiamibtn = document.getElementById('jiamib');
     var jiemibtn = document.getElementById('jiemib');
 	var miyao = document.getElementById('miyao');
-	var miwen = document.getElementById('miwen');
+	var miwen = document.getElementsByClassName('miwen');
     
 	//加密算法
 	jiamibtn.onclick =  function jiami(){
         b = miyao.value.toUpperCase().split('');
-        
 		arr = nojiami.value.toLowerCase().split('');
 		console.log(arr);
 		var i = 0, j = 0;
