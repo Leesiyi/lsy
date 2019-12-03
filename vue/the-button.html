@@ -16,8 +16,13 @@
         li {
             list-style: none;
         }
+        .drop-down-component{
+            position: relative;
+            left: 1200px;
+        }
 
         .drop-down-button {
+            /* position: absolute; */
             padding: 0 9px;
             margin: 0 4px;
             min-width: 60px;
@@ -40,12 +45,13 @@
         }
 
         .drop-down-list {
+            
             box-shadow: 0 4px 14px 0 rgba(5, 15, 40, .1);
             background: #fff;
             border-radius: 2px;
             border: 1px solid #e8ebef;
             width: 168px;
-            margin: 1px 4px 0;
+            margin: 2px 4px 0;
         }
 
         .drop-down-list-ul {
@@ -64,7 +70,10 @@
             background: rgb(194, 199, 205);
             border-radius: 5px;
         }
-
+        .right{
+            position: absolute;
+            left:-88px;
+        }
         .dorp-down-list-li {
             line-height: 36px;
             padding: 0 26px;
@@ -79,11 +88,11 @@
 
 <body>
     <div id="app">
-        <div>
-            <span class="drop-down-button" @click.stop='dropDown' :class="{ blue: isShow }">按钮</span>
-            <div class="drop-down-list" v-show="isShow">
+        <div class="drop-down-component">
+            <span class="drop-down-button" @click.stop='dropDown($event)' :class="{ blue: isShow }">按钮</span>
+            <div class="drop-down-list" v-show="isShow" :class="{right:isRight}">
                 <ul class="drop-down-list-ul">
-                    <li v-for="val in arr" class="dorp-down-list-li" @click="theEvent(val)">{{val}}</li>
+                    <li v-for="(val,index) in arr" ::key="index" class="dorp-down-list-li" @click="theEvent(val)">{{val}}</li>
                 </ul>
             </div>
         </div>
@@ -101,14 +110,22 @@
             data: {
                 arr: ["hello", "world", "hi", "ssss", "你好", 1, 23, 3, 4, 5, 5, 6, 6, 6, 6, 6],
                 isShow: false,
+                isRight:false,
+                screenWidth: document.body.clientWidth,
             },
             methods: {
-                dropDown() {
+                dropDown(e) {
                     this.isShow = !this.isShow;
+                    const rect = e.target.getBoundingClientRect()
+                    if(this.screenWidth - rect.left < 169){
+                        this.isRight = true;
+                    }
+                    else{
+                        this.isRight = false;
+                    }
                 },
                 theEvent(val) {
                     alert(val);
-
                 }
 
             },
