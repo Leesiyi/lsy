@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p {
+            background: blue;
+            height: 100px;
+            width: 100px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+    <script>
+
+        var arr = [1,22,22,33,22,12,45,44,5];
+        
+        function check( arr ){
+            for(let i=0;i<arr.length;i++){
+                let flag = 0
+                for(let j=i-1;j!=-1;j--){
+                    if(arr[j]>arr[i]){
+                        flag++
+                    }
+                }
+                if(flag===1){
+                    console.log(i);
+                    
+                }
+            }
+        }
+        check(arr)
+        
+    </script>
+</body>
+
+</html>

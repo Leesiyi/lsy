@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" Content="text/html; charset=utf-8;">
+<title> JS replace方法 </title>
+<meta name="author" content="rainna" />
+<meta name="keywords" content="rainna's js lib" />
+<meta name="description" content="JS replace方法" />
+</head>
+<body>
+<h1>使用JS的replace()方法把所有单词的首字母大写</h1>
+<p>replace() 方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。<br />replace()方法有两个参数，第一个参数是正则表达式，正则表达式如果带全局标志/g，则是代表替换所有匹配的字符串，否则是只替换第一个匹配串。<br />
+第二个参数可以是字符串，也可以是函数。$1、$2...表示与正则表达式匹配的文本。</p>
+<p id="word">There are many ways we can make a difference. Global change starts with you. Sign up for our free newsletter today.</p>
+<a href="" id="replaceBtn">替换</a>
+
+<script>
+var replaceFunc = function(){
+    var word = document.getElementById('word').innerText.toString(),
+        btn = document.getElementById('replaceBtn');
+    
+    var func1 = function(str){
+        return str.replace(/\b\w+\b/g,function(word){
+             return word.substring(1,2).toUpperCase() + word.substring(1,2);
+        });
+    }
+    
+    btn.onclick = function(event){
+        event.preventDefault();
+        console.log(func1(word));
+    }    
+}
+
+replaceFunc();
+</script>
+</body>
+</html>

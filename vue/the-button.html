@@ -16,11 +16,15 @@
         li {
             list-style: none;
         }
-        .drop-down-component{
-            position: relative;
-            left: 1200px;
-        }
 
+        .drop-down-component {
+            position: relative;
+            left: 1000px;
+        }
+        .scroll{
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
         .drop-down-button {
             /* position: absolute; */
             padding: 0 9px;
@@ -45,22 +49,21 @@
         }
 
         .drop-down-list {
-            
+
             box-shadow: 0 4px 14px 0 rgba(5, 15, 40, .1);
             background: #fff;
             border-radius: 2px;
             border: 1px solid #e8ebef;
             width: 168px;
             margin: 2px 4px 0;
+            position:absolute;
         }
 
         .drop-down-list-ul {
             margin-bottom: 8px;
-            max-height: 192px;
-            overflow-x: hidden;
-            overflow-y: auto;
+            /* max-height: 192px; */
+            
         }
-
         .drop-down-list-ul::-webkit-scrollbar {
             width: 4px;
 
@@ -69,10 +72,6 @@
         .drop-down-list-ul::-webkit-scrollbar-thumb {
             background: rgb(194, 199, 205);
             border-radius: 5px;
-        }
-        .right{
-            position: absolute;
-            left:-88px;
         }
         .dorp-down-list-li {
             line-height: 36px;
@@ -88,40 +87,73 @@
 
 <body>
     <div id="app">
-        <div class="drop-down-component">
-            <span class="drop-down-button" @click.stop='dropDown($event)' :class="{ blue: isShow }">按钮</span>
-            <div class="drop-down-list" v-show="isShow" :class="{right:isRight}">
-                <ul class="drop-down-list-ul">
-                    <li v-for="(val,index) in arr" ::key="index" class="dorp-down-list-li" @click="theEvent(val)">{{val}}</li>
-                </ul>
+            <div class="drop-down-component">
+                <span class="drop-down-button" @click.stop='dropDown($event)' :class="{ blue: isShow }" ref="dropButton">按钮aaaaaaa</span>
+                <div class="drop-down-list" v-show="isShow"  ref="dropList" :style="{left:useleft}">
+                    <slot name="drop-down-slot-ul">
+                        <ul class="drop-down-list-ul" ref="dropUl">
+                            <li v-for="(val,index) in arr" :key="index" class="dorp-down-list-li" @click="theEvent(val)">
+                                <slot name="drop-down-slot-li">{{val}}</slot>
+                            </li>
+                        </ul>
+                    </slot>
+                </div>
             </div>
-        </div>
-
+        
     </div>
     <script>
 
         new Vue({
             el: "#app",
             mounted() {
+                //获取drop-down-list-ul宽度
+                let style = this.$refs.dropList.style
+                style.display = "block"
+                style.visibility = 'hidden';
+                style.zIndex = -1000;
+                let ulWidth = this.$refs.dropUl.offsetWidth;
+                style.display = "none"
+                style.visibility = 'visible';
+                style.zIndex = ''
+                let btnWidth = this.$refs.dropButton.offsetWidth;  //获取按钮宽度
+                this.left = '-' + (ulWidth-btnWidth) + 'px'  //设置位移距离
+                window.addEventListener('resize',() => {     //监听屏幕尺寸变化
+                    this.screenWidth = document.body.clientWidth  //获取当前屏幕宽度
+                    
+                    if (this.isShow) {   //当drop-down-list显示时
+                        if (this.screenWidth - this.buttonLeft < 169) {   //判断组件距屏幕边距离是否足够展开
+                            this.useleft = this.left;   //不足则向右对齐
+                        } else {  
+                            this.useleft = 0;   //足够继续左对齐
+                        }
+                    }
+
+                })
                 window.addEventListener('click', () => {
-                    this.isShow = false;
+                    this.isShow = false;   //设置点击空白收回
                 });
             },
+            destroyed() {
+                window.removeEventListener('resize')  //remove事件
+            },
             data: {
-                arr: ["hello", "world", "hi", "ssss", "你好", 1, 23, 3, 4, 5, 5, 6, 6, 6, 6, 6],
-                isShow: false,
-                isRight:false,
-                screenWidth: document.body.clientWidth,
+                arr: ["hello", "world", "hi", "ssss", "你好", 1, 23, 3, 4, 5, 5, 6, 6, 6, 6, 6],   //li内数据
+                isShow: false,    //drop-down-list是否显示
+                screenWidth: document.body.clientWidth,   //屏幕宽度
+                buttonLeft: 0,   //按钮组件距离窗口距离  用于计算展开后对齐方式
+                useleft:'',  //drop-down-list位移量
+                left:'',  //存储按钮与组件宽度差
             },
             methods: {
-                dropDown(e) {
-                    this.isShow = !this.isShow;
-                    const rect = e.target.getBoundingClientRect()
-                    if(this.screenWidth - rect.left < 169){
-                        this.isRight = true;
+                dropDown(e) {   //点击列表事件
+                    this.isShow = !this.isShow;   //toggle
+                    let rect = e.target.getBoundingClientRect()   
+                    this.buttonLeft = rect.left //存储距离用于resize判断
+                    if (this.screenWidth - rect.left < 169) {
+                        this.useleft = this.left;
                     }
-                    else{
-                        this.isRight = false;
+                    else {
+                        this.useleft = 0;
                     }
                 },
                 theEvent(val) {

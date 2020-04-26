@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p {
+            background: blue;
+            height: 100px;
+            width: 100px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+    <script>
+        let arr = [1, 5, 3, 2, 5, 3, 9, 3, 2, 3, 2, 1, 5, 3]
+        function repeat(string) {
+            var ans = '';
+            let firstChar = string.charAt(0),
+                firstIndex = 0,
+                lastIndex,
+                arraySame = [];
+            for (var i = 1, len = string.length; i < len; i++) {
+                let lastChar = string.charAt(i);
+                if (firstChar !== lastChar) {
+                    firstChar = string.charAt(i);
+                    firstIndex = i;
+                } else {
+                    lastIndex = i;
+                    if (firstChar !== string.charAt(i + 1)) {
+                        stringChild = string.slice(firstIndex, lastIndex + 1);
+                        arraySame.push(stringChild);
+                    }
+                }
+            }
+            for(let i = 0;i<arraySame.length;i++){
+                if(arraySame[i+1]){
+                    ans += arraySame[i] + ' '
+                }else{
+                    ans += arraySame[i]
+                }
+            }
+            return ans
+        }
+        
+        console.log(foo('aacdccfttt'));
+        
+
+
+        
+
+    </script>
+</body>
+
+</html>
