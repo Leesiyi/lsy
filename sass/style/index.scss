@@ -1,9 +1,0 @@
-$colorr:#fff;
-#div1{
-    color:$colorr;
-}
-@for $i from 1 through 10 {
-    #div-#{$i}{
-        margin: $i
-    }
-}
