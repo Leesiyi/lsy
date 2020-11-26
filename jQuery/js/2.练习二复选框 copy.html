@@ -48,8 +48,7 @@
         var start_x;   // touchstart时的水平起始位置
         var end_x;     // touchmove过程中的水平结束位置
         var touchmove = false;    // 标识是否成功触发了touchmove，默认没有触发。
-        $('#floatingbox').on("touchstart",function(e){ 
-            console.log(e.originalEvent);// 触摸开始时
+        $('#floatingbox').on("touchstart",function(e){ // 触摸开始时
             if (e.originalEvent.targetTouches) {
                 start_x = e.originalEvent.targetTouches[0].pageX;
             } else {

@@ -9,17 +9,24 @@
       background: yellow;
     }
   </style>
-  <script src="E:\Work\lsy\jQuery\jquery-3.4.1.js"></script>
+  <script src="../jquery-3.4.1.min.js"></script>
 </head>
 
 <body>
-
+  <div id="id"></div>
   <span>I have nothing more to say... </span>
-
-  <div id="foo">FOO! </div>
-
+  <button id="click">click</button>
+ 
+  
   <script>
     $("span").appendTo("#foo");
+    $("#click").on('click',function(){
+      $("#id").append('<select>'+
+   '<option>aaaa</option>'+
+' </select>'
+    )
+    })
+  
   </script>
 
 </body>
