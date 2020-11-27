@@ -7,7 +7,20 @@
     <router-view/>
   </div>
 </template>
+<script>
+export default {
+  data () {
+    return {
+      data: '',
+      data1: '',
+      data2: ''
+    }
+  },
+  methods: {
 
+  }
+}
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
