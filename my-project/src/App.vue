@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <select v-model="data" name="" id="">
+      <option value="a">a</option>
+      <option value="b">b</option>
+    </select>
+    <a-button type="primary" @click="test()">Button></a-button>
   </div>
 </template>
 <script>
@@ -17,7 +17,10 @@ export default {
     }
   },
   methods: {
-
+    test () {
+      this.data = ''
+      console.log(this.data);
+    }
   }
 }
 </script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let a = [
+      { time: 1 },
+      { time: 5 },
+      { time: 8 },
+      { time: 11 },
+      { time: 16 },
+      { time: 17 },
+      { time: 29 },
+      { time: 34 },
+      { time: 39 }
+    ];
+    let time_line = [3, 7, 12, 17, 19, 31, 40];
+    
+    function timeLine(timeArr,lineArr){
+      let result = [];
+      for (let i = 0; i < lineArr.length; i++) {
+        let index = 0
+        let min = Math.abs(timeArr[0].time - lineArr[i])
+        for (let j = 0; j < timeArr.length; j++) {
+          if (j > 0) {
+            let pre = Math.abs(timeArr[j - 1].time - lineArr[i]);
+            let now = Math.abs(timeArr[j].time - lineArr[i]);
+            if (now <= pre) {
+              min = now;
+              index = j
+            }
+          }
+        }
+        let obj = {};
+        obj['line'] = lineArr[i]
+        let resultObj = Object.assign(obj,timeArr[index])
+        result.push(resultObj);
+      }
+      return result;
+    }
+    console.log(timeLine(a,time_line));
+  </script>
+</body>
+
+</html>

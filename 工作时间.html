@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function formatterDate(val) {
+      let date = new Date(val)
+      let newdate_year = date.getFullYear()
+      let newdate_month = date.getMonth() + 1
+      let newdate_day = date.getDate()
+      let newdate_hours = date.getHours()
+      let newdate_min = date.getMinutes()
+      let newdate_miao = date.getSeconds()
+      if (newdate_day < 10) {
+        newdate_day = "0" + newdate_day.toString()
+      }
+      if (newdate_month < 10) {
+        newdate_month = "0" + newdate_month.toString()
+      }
+      if (newdate_hours < 10) {
+        newdate_hours = "0" + newdate_hours.toString()
+      }
+      if (newdate_min < 10) {
+        newdate_min = "0" + newdate_min.toString()
+      }
+      if (newdate_miao < 10) {
+        newdate_miao = "0" + newdate_miao.toString()
+      }
+      return `${newdate_year}-${newdate_month}-${newdate_day}\xa0${newdate_hours}:${newdate_min}:${newdate_miao}`
+    }
+    function workTime(time) {
+      let finalTime;
+      let newdate = new Date(time.replace(new RegExp("-", "gm"), "/"));
+      let day_zero = new Date(newdate.toLocaleDateString()).getTime()
+      let newdate_sec = newdate.getTime();
+      let newdate_week = newdate.getDay();
+      let work_time = 1000 * 60 * 60 * 3
+      let one_day = 1000 * 60 * 60 * 24
+      let one_hour = 1000 * 60 * 60
+      // let dd = formatterDate(newdate_sec + work_time)
+      if(newdate_week === 0){
+        finalTime = day_zero + one_day + one_hour * 8
+        console.log(formatterDate(finalTime));
+      }
+      else if(newdate_week === 6){
+        finalTime = day_zero + one_day * 2 + one_hour * 8
+        console.log(formatterDate(finalTime));
+      }
+      else if(newdate_week === 5 && newdate_sec >= day_zero + one_hour * 18){
+        finalTime = day_zero + one_day * 3 + one_hour * 8
+        console.log(formatterDate(finalTime));
+      }
+      else if(newdate_week === 5 && newdate_sec + work_time > day_zero + one_hour * 18){
+        finalTime = (day_zero + one_day * 3 + one_hour * 8) + (newdate_sec + work_time - (day_zero + one_hour * 18))
+        console.log(formatterDate(finalTime));
+      }
+      else{
+        if(newdate_sec <= day_zero + one_hour * 8 && newdate_sec >= day_zero){
+          finalTime = day_zero + one_hour * 11
+          console.log(formatterDate(finalTime));
+        }
+        else if(newdate_sec >= day_zero + one_hour * 18 && newdate_sec <= day_zero + one_day){
+          finalTime = day_zero + one_day + one_hour * 11
+          console.log(formatterDate(finalTime));
+        }
+        else if(newdate_sec <= day_zero + one_hour * 9 && newdate_sec > day_zero + one_hour * 8){
+          finalTime = newdate_sec + work_time
+          console.log(formatterDate(finalTime));
+        }
+        else if(newdate_sec <= day_zero + one_hour * 12 && newdate_sec > day_zero + one_hour * 9){
+          finalTime = (newdate_sec + work_time - (day_zero + one_hour * 12)) + day_zero + one_hour * 14
+          console.log(formatterDate(finalTime));
+        }
+        else if(newdate_sec <= day_zero + one_hour * 14 && newdate_sec > day_zero + one_hour * 12){
+          finalTime = day_zero + one_hour * 14 + work_time
+          console.log(formatterDate(finalTime));
+        }
+        else if(newdate_sec <= day_zero + one_hour * 15 && newdate_sec > day_zero + one_hour * 14){
+          finalTime = newdate_sec + work_time
+          console.log(formatterDate(finalTime));
+        }
+        else if(newdate_sec <= day_zero + one_hour * 18 && newdate_sec > day_zero + one_hour * 15){
+          finalTime = (day_zero + one_day + one_hour * 8) + (newdate_sec + work_time - (day_zero + one_hour * 18))
+          console.log(formatterDate(finalTime));
+        }
+      }
+    }
+    workTime('2020-03-19 19:20:00')
+    //输入 2020-03-21 17:20:00  （周六）    返回 2020-03-23 08:00:00   （周一）
+    //输入 2020-03-22 17:20:00  （周日）    返回 2020-03-23 08:00:00   （周一）
+    //输入 2020-03-20 17:20:00  （周五）    返回 2020-03-23 10:20:00   （周一）
+    //输入 2020-03-20 19:20:00  （周五）    返回 2020-03-23 11:00:00   （周一）
+    //输入 2020-03-19 06:20:00  （周四）    返回 2020-03-19 11:00:00   （周四）
+    //输入 2020-03-19 08:20:00  （周四）    返回 2020-03-19 11:20:00   （周四）
+    //输入 2020-03-19 09:20:00  （周四）    返回 2020-03-19 14:20:00   （周四）
+    //输入 2020-03-19 12:20:00  （周四）    返回 2020-03-19 17:00:00   （周四）
+    //输入 2020-03-19 14:20:00  （周四）    返回 2020-03-19 17:20:00   （周四）
+    //输入 2020-03-19 17:20:00  （周四）    返回 2020-03-20 10:20:00   （周五）
+    //输入 2020-03-19 19:20:00  （周四）    返回 2020-03-20 11:00:00   （周五）
+  </script>
+</body>
+
+</html>
